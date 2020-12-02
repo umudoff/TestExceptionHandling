@@ -26,12 +26,18 @@ namespace TestNumberConverter
                 try
                 {
                     Console.WriteLine("Integer Output:" + Converter.ConvertToInt(input));
+                    Console.WriteLine("Converted to Integer Successfully");
 
+                }
+                catch (NonDigitException e)
+                {
+                    Console.WriteLine("Entered non-numeric value:{0} ", e.EnteredValue);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Invalid input, exception:" + e.GetType());
                 }
+
                 finally
                 {
                     Console.Write("Input value:");

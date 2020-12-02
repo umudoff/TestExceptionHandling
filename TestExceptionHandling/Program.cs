@@ -13,17 +13,24 @@ namespace TestExceptionHandling
             Console.Write("Input value:");
             while (true)
             {
-               
+
                 var input = Console.ReadLine();
 
                 try
                 {
-                    Console.WriteLine("First Character:" + input.Substring(0,1) );
+                    Console.WriteLine("First Character:" + input.Substring(0, 1));
 
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Invalid input, exception:"+ e.GetType());
+                    if (input is null || input == "")
+                    {
+                        Console.WriteLine("Empty value was entered, please type something");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input, exception:" + e.GetType());
+                    }  
                 }
                 finally
                 {
